@@ -19,7 +19,7 @@ The system employs **intelligent customer filtering** via greedy knapsack, rejec
 - **Unit 3 (Graph Algorithms)**: Dijkstra's shortest paths + Prim's MST for network analysis
 - **Unit 4 (TSP)**: Brute-force and Held-Karp for optimal tour computation
 
-![Full Delivery Network Graph](images/full_network.jpg)
+![Full Delivery Network Graph](images/full_network.png)
 
 ---
 
@@ -200,7 +200,7 @@ for parcel in parcels_sorted:
 
 **Final Selection**: C1 + C2 = **$110 profit, 30 kg (100% capacity utilization)**
 
-![Greedy Knapsack: Profit vs Weight Analysis](images/knapsack.jpg)
+![Greedy Knapsack: Profit vs Weight Analysis](images/knapsack.png)
 
 **Complexity**: O(n log n) - Sorting dominates  
 **Trade-off**: Greedy approximation vs. exact DP solution (acceptable for real-time logistics)
@@ -260,7 +260,7 @@ def validate_time_windows(route, distance_matrix, time_windows, start_time=8):
 
 *Note*: In this dense graph, direct paths are optimal (no shorter indirect routes).
 
-![Dijkstra's Algorithm - Shortest Paths from Warehouse](images/dijkstra.jpg)
+![Dijkstra's Algorithm - Shortest Paths from Warehouse](images/dijkstra.png)
 
 **Complexity**: O((V + E) log V) with binary heap  
 **Use Case**: Foundation for informed route selection in subsequent TSP
@@ -284,7 +284,7 @@ Step 3: Add C3-C2 (3 km)  → Tree: {W, C1, C2, C3}
 Total: 4 + 6 + 3 = 13 km
 ```
 
-![Prim's Minimum Spanning Tree (Total: 12 km)](images/prim.jpg)
+![Prim's Minimum Spanning Tree (Total: 12 km)](images/prim.png)
 
 **Complexity**: O(E log V) with binary heap  
 **Insight**: MST provides lower bound for TSP (actual tour must be ≥ MST weight)
@@ -349,7 +349,7 @@ def tsp_brute_force(locations, distance_matrix):
 | 10         | 3,628,800        | 102,400             | 35x     |
 | 15         | 1.3 × 10¹²       | 3.4 × 10⁶           | 382,000x|
 
-![TSP Complexity Growth Analysis](images/tsp.jpg)
+![TSP Complexity Growth Analysis](images/tsp.png)
 
 #### **Our Optimized Solution**: Greedy on Filtered Customers
 
@@ -358,7 +358,7 @@ After knapsack filtering (C1, C2 only):
 - Distance: **4 + 5 + 8 = 17 km**
 - Profit: **$110**
 
-![Optimal Route After Greedy Filtering (17 km)](images/optimal_route.jpg)
+![Optimal Route After Greedy Filtering (17 km)](images/optimal_route.png)
 
 **Key Insight**: Selective delivery (17 km, $110) outperforms full coverage (18 km, $150) when considering capacity constraints and operational efficiency.
 
@@ -400,7 +400,7 @@ def benchmark_tsp(n_cities):
 3. **Time Window Gantt Chart**: Displays delivery timeline with waiting periods
 4. **Complexity Growth**: Log-scale plot comparing algorithm runtime vs. city count
 
-![Professional Gantt Chart - Delivery Timeline](images/gantt_chart.jpg)
+![Professional Gantt Chart - Delivery Timeline](images/gantt_chart.png)
 
 ---
 
